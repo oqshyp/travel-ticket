@@ -1,0 +1,62 @@
+Pseudocode
+
+READ and WRITE "username" with string
+READ and WRITE "password with string
+READ and WRITE "registeredUser" with boolean
+READ and WRITE "package" with number
+READ and WRITE "destination" with array of string
+READ and WRITE "bookingDate" with array of string
+READ and WRITE "departDate" with array of string
+READ and WRITE "returnDate" with array of string
+READ and WRITE "transportMethod" with array of string
+READ and WRITE "transportPartner" with array of string
+READ and WRITE "accomodationPartner" as array of string
+READ and WRITE "accomodationFacility" as array of string
+READ and WRITE "transportationCost" as number
+READ and WRITE "accomodationCost" as number
+READ and WRITE "totalCost" as number
+
+
+STORE "destination" with ["Majapahit, Trowulan", "Nippon, Nara"]
+STORE "transportMethod" with ["airplane", "train"]
+STORE "transportPartner" with ["Director's Airlines", "Transcendent's", "Salvation Airlines"]
+STORE "accommodationPartner" with ["Gong Pildu's Housing", "Yoo's BnB", "KimCom's Homestay"]
+STORE "accommodationFacility" with ["hot water", "bathtub", "breakfast", "shower", "Kim Dokja", "heater", "air conditioner"]
+
+
+FUNCTION TransportDateDiscount (transportCost)
+	STORE "result" with transportCost minus 5%transportCost
+	RETURN "result"
+END FUNCTION
+
+FUNCTION AccommodationDiscount (accommodationCost)
+	STORE "result" with accommodationCost minus 5%accommodationCost
+	RETURN "result"
+END FUNCTION
+
+FUNCTION FinalCost (transportCost, accommodationCost)
+	STORE "result" with transportCost plus accommodationCost
+	RETURN "result"
+END FUNCTION
+	
+
+IF "departDate" more than "bookingDate" + 90 is True
+	CALL TransportDateDiscount
+
+IF "accommodationPartner" is equal to "KimCom's Homestay"
+	CALL AccommodationDiscount
+
+STORE "registeredUser" with User(username, password)
+IF "registeredUser" is equal to TRUE
+	STORE "selectedDestination" with "destination"[1]
+	STORE "departDate" with "bookingDate" + 100
+	STORE "selectedMethod" with "transportationMethod"[0]
+	STORE "selectedTransportPartner" with "transportPartner"[2]
+	STORE "selectedAccommodationFacility" with "accommodationFacility"[0, 1, 4, 5]
+	
+	CALL FinalCost
+	PRINT FinalCost
+
+IF "registeredUser" is equal to FALSE
+	PRINT "Lakukan Registrasi Pengguna Terlebih Dahulu"
+	
